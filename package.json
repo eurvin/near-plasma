@@ -1,0 +1,16 @@
+{
+  "name": "near-plasma",
+  "version": "1.0.0",
+  "description": "A Near Smart Contract for Streaming Payments",
+  "main": "index.js",
+  "author": "Eurvin",
+  "license": "GNU GPL V3",
+  "private": false,
+  "dependencies": {
+    "global": "^4.4.0",
+    "near-cli": "^3.2.0"
+  },
+  "devDependencies": {
+    "near-sdk-as": "^3.2.3"
+  }
+}
