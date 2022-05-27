@@ -30,4 +30,7 @@ export class Stream {
     description: string;
     sender: string;
     recipient: string;
+    startBlockHeight: string;
+    endBlockHeight: string;
+    flowRate: u32;
 }
