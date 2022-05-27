@@ -22,8 +22,7 @@ export class Vault {
     }
 }
 
-export const listedVaults = new PersistentUnorderedMap<string, Vault>("v");
-
+@nearBindgen
 export class Stream {
     id: string;
     owner: string;
@@ -33,4 +32,20 @@ export class Stream {
     startBlockHeight: string;
     endBlockHeight: string;
     flowRate: u32;
+    public static fromPayload(payload: Stream): Stream {
+        const stream = new Stream();
+        stream.id = payload.id;
+        stream.owner = payload.owner;
+        stream.description = payload.description;
+        stream.sender = payload.sender;
+        stream.recipient = payload.recipient;
+        stream.startBlockHeight = payload.startBlockHeight;
+        stream.endBlockHeight = payload.endBlockHeight;
+        stream.flowRate = payload.flowRate;
+        return stream;
+    }
 }
+
+export const listedVaults = new PersistentUnorderedMap<string, Vault>("pv");
+
+export const listedStreams = new PersistentUnorderedMap<string, Stream>("ps");
