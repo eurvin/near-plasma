@@ -12,7 +12,7 @@ export class Vault {
     public static fromPayload(payload: Vault): Vault {
         const vault = new Vault();
         vault.id = payload.id;
-        vault.owner = payload.owner;
+        vault.owner = context.sender;
         vault.name = payload.name;
         vault.description = payload.description;
         vault.balance = payload.balance;
@@ -29,16 +29,18 @@ export class Stream {
     description: string;
     sender: string;
     recipient: string;
+    amount: u32;
     startBlockHeight: string;
     endBlockHeight: string;
     flowRate: u32;
     public static fromPayload(payload: Stream): Stream {
         const stream = new Stream();
         stream.id = payload.id;
-        stream.owner = payload.owner;
+        stream.owner = payload.owner; // === vault.id
         stream.description = payload.description;
-        stream.sender = payload.sender;
+        stream.sender = context.sender;
         stream.recipient = payload.recipient;
+        stream.amount = payload.amount;
         stream.startBlockHeight = payload.startBlockHeight;
         stream.endBlockHeight = payload.endBlockHeight;
         stream.flowRate = payload.flowRate;
