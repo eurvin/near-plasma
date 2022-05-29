@@ -22,11 +22,13 @@ export function createStream(stream: Stream) {
 
 // getStream, gets all data of an individual stream
 export function getStream(id: string) {
+    // check ownership
     return listedStreams.get(id);
 }
 
 // getStreams, gets basic data about all streams relating to a user
 export async function getStreams() {
+    // check ownership
     return listedStreams.values();
 }
 
